@@ -1,0 +1,52 @@
+import random 
+
+## The random int generation
+
+q = exit
+
+number = random.randint(1, 100)
+
+print ("Mr. Kratochvill's Number Guessing Game") 
+
+## mk is the input response
+
+mk = input ("Would you like to play the game? (y/n)")
+
+if mk == 'Y' or mk == 'y':
+    
+        ## q is the end game button
+
+    if q:
+        print ("Game over")
+        sys.exit()
+        
+        ## gS is the Guessed Number
+
+    gS = int(input("Guess a number between 1 and 100. "))
+
+        ## player gets a first round try for a different message
+    
+    if gS == number:
+        
+        print ("Great! You guessed it the first time.")
+    else:
+        print ("You did not get it your first try")
+        ## after first guess player gets as many guesses as it takes to win.
+        ## while loop is used to give player more guessing oppurtunities
+        while gS != number:
+
+            gS = int(input("Try another: "))
+
+            if gS == number:
+                print("Congratulations you finally guessed the right number.")
+                break
+        ## player gets feed back to help improve chances using printed hints
+            elif gS < number: 
+
+               print("Your guess was too low: Guess a number higher than", gS)
+     
+            else: 
+                print("Your guess was too high: Guess a number lower than", gS) 
+else:
+    print ("That's ok, have a nice day.")
+
