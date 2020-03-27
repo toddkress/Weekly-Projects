@@ -1,0 +1,64 @@
+import random
+
+play = True 
+
+## The random int generation
+
+while play: 
+
+    number = random.randint(1, 100)
+    print (number)
+
+
+    print ("TK's guess a number game") 
+
+    ## rp is the input response
+
+    rp = input ("Would you like to star TK's amazing number guessing game? (y/n)")
+
+    if rp == 'Y' or rp == 'y':
+
+        ## gN is the Guessed Number
+
+        gN = (input("Guess a number between 1 and 100 or you may type Q to quit. "))
+        if gN == 'Q':
+            print ("Thanks for trying TK's amazing number guessing game. Have a great day!")
+
+        else:
+            gN = int(gN)
+
+        ## player gets a first round try for a different message
+    
+            if gN == number:
+                print ("Great! You guessed it the first time.")
+            
+            else:
+                print ("You guessed incorrectly, please try again")
+                ## after first guess player gets as many guesses as it takes to win.
+                ## while loop is used to give player more guessing oppurtunities
+                while (gN != number and gN != 'Q'):
+
+                    if gN == 'Q':
+                        print ("Thanks for playing. Better luck next time.")
+                    
+                    else:
+                        gN = int (gN)
+                        if gN == number:
+                            print("Congratulations you are correct!")
+                      
+                            ## player gets a hint to help choose correct answer
+                        elif gN < number: 
+                            print("Your guess was too low: Guess a number higher than", gN) 
+                            gN = (input("Try another number or press Q to quit. "))
+                
+                        else: 
+                            print("Your guess was too high: Guess a number lower than", gN)
+                            gN = (input("Try another number or press Q to quit. "))
+                        
+## Didn't type Y, game over.
+else:
+    print ("Bye. Have a nice day!")
+    
+    again=str(input("Do you want to play again, type yes or no "))
+    if again == "no":
+      play = False
