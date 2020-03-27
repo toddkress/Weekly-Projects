@@ -53,5 +53,5 @@ if rp == 'Y' or rp == 'y':
                         
 ## Didn't type Y, game over.
 else:
-    print ("Bye. Have a nice day!")
+    print ("Goodbye. Have a nice day!")
 
