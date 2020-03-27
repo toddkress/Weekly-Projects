@@ -3,8 +3,10 @@ import random
 ## The random int generation
 
 number = random.randint(1, 100)
+print (number)
 
-print ("Mr. Moklestad's Guessing Game") 
+
+print ("Guess a Number with Mrs. Lahey") 
 
 ## rp is the input response
 
@@ -12,34 +14,44 @@ rp = input ("Would you like to play the game? (y/n)")
 
 if rp == 'Y' or rp == 'y':
 
-    ## gS is the Guessed Number
+    ## gN is the Guessed Number
 
-    gS = int(input("Guess a number between 1 and 100. "))
+    gN = (input("Guess a number between 1 and 100 or Q to quit. "))
+    if gN == 'Q':
+        print ("Thanks for playing.  Better luck next time.")
+
+    else:
+        gN = int(gS)
 
     ## player gets a first round try for a different message
     
-    if gS == number:
-        
+        if gN == number:
             print ("Great! You guessed it the first time.")
-    else:
-        print ("You did not get it your first try")
-        ## after first guess player gets as many guesses as it takes to win.
-        ## while loop is used to give player more guessing oppurtunities
-        while gS != number:
+            
+        else:
+            print ("You did not get it your first try")
+            ## after first guess player gets as many guesses as it takes to win.
+            ## while loop is used to give player more guessing oppurtunities
+            while (gN != number and gN != 'Q'):
 
-            gS = int(input("Try another: "))
-
-            if gS == number:
-                print("Congratulations you finally guessed the right number.")
-                break
-            ## player gets feed back to help improve chances using printed hints
-            elif gS < number: 
-
-                print("Your guess was too low: Guess a number higher than", gS) 
-  
+                if gN == 'Q':
+                    print ("Thanks for playing. Better luck next time.")
+                    
+                else:
+                    gN = int (gN)
+                    if gN == number:
+                        print("Congratulations you are correct!")
+                      
+                        ## player gets a hint to help choose correct answer
+                    elif gN < number: 
+                        print("Your guess was too low: Guess a number higher than", gN) 
+                        gN = (input("Try another number or press Q to quit. "))
                 
-            else: 
-                print("Your guess was too high: Guess a number lower than", gS) 
+                    else: 
+                        print("Your guess was too high: Guess a number lower than", gN)
+                        gN = (input("Try another number or press Q to quit. "))
+                        
+## Didn't type Y, game over.
 else:
-    print ("That's ok, have a nice day.")
+    print ("Bye. Have a nice day!")
 
